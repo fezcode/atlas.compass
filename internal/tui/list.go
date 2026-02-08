@@ -72,6 +72,7 @@ func NewListModel(entries []model.Entry, width, height int) ListModel {
 			key.NewBinding(key.WithKeys("c"), key.WithHelp("c", "copy password")),
 			key.NewBinding(key.WithKeys("u"), key.WithHelp("u", "copy username")),
 			key.NewBinding(key.WithKeys("d"), key.WithHelp("d", "delete")),
+			key.NewBinding(key.WithKeys("P"), key.WithHelp("P", "change master pass")),
 		}
 	}
 

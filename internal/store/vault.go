@@ -84,7 +84,13 @@ func Save(vault *model.Vault, password string) error {
 		return err
 	}
 
-	return os.WriteFile(path, encryptedData, 0600)
+	// Atomic write: write to temp file then rename
+	tmpPath := path + ".tmp"
+	if err := os.WriteFile(tmpPath, encryptedData, 0600); err != nil {
+		return err
+	}
+
+	return os.Rename(tmpPath, path)
 }
 
 // Exists checks if the vault file exists.

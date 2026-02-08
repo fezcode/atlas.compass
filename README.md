@@ -41,6 +41,16 @@ Run the binary to unlock your vault (or create a new one):
 ### First Run
 If no vault exists, the password you enter at the prompt will become your **Master Password**. Do not forget it; there is no recovery mechanism.
 
+## 🔐 Changing Master Password
+
+You can rotate your Master Password directly from the vault:
+1. Press `P` in the list view.
+2. Type `YES` to confirm you want to proceed.
+3. Enter your **Current** password.
+4. Enter and confirm your **New** password.
+
+This process will decrypt your entire vault and **atomically re-encrypt** it with the new key, ensuring no data loss occurs even if the process is interrupted.
+
 ## 📂 Storage Location
 
 Your encrypted vault is stored locally in your user's home directory:
@@ -64,6 +74,7 @@ This directory is created automatically on the first run. To backup your passwor
 | `c` | List/Detail | Copy Password to clipboard |
 | `u` | List/Detail | Copy Username to clipboard |
 | `d` | List | Delete entry |
+| `P` | List | **Change Master Password** |
 | `Esc` | Detail/Editor | Back to List / Cancel |
 | `Tab` | Editor | Next field |
 | `Shift+Tab` | Editor | Previous field |

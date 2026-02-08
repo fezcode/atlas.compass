@@ -37,6 +37,7 @@ func main() {
 		}
 	}
 
+	failed := false
 	for _, t := range targets {
 		outputName := fmt.Sprintf("%s-%s-%s", appName, t.OS, t.Arch)
 		if t.OS == "windows" {
@@ -58,7 +59,14 @@ func main() {
 		if err != nil {
 			fmt.Printf("  Error building for %s/%s: %v\n", t.OS, t.Arch, err)
 			fmt.Printf("  Output: %s\n", string(out))
+			failed = true
 		}
 	}
-	fmt.Println("\nAll builds completed successfully!")
+
+	if failed {
+		fmt.Println("\nSome builds failed. See errors above.")
+		os.Exit(1)
+	} else {
+		fmt.Println("\nAll builds completed successfully!")
+	}
 }
