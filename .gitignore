@@ -1,0 +1,25 @@
+# Binaries
+build/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Dependencies
+vendor/
+go.sum
+
+# Local Vault (Crucial: Never commit your secrets)
+.atlas/
+compass.enc
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
