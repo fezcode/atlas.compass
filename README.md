@@ -27,7 +27,7 @@
 ```bash
 git clone https://github.com/fezcode/atlas.compass
 cd atlas.compass
-go run scripts/build.go
+gobake build
 ```
 
 ## ⌨️ Usage

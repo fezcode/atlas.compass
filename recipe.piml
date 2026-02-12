@@ -1,0 +1,4 @@
+(name) atlas.compass
+(version) 0.1.0
+(description) Secure, local-first password manager for the terminal.
+(license) MIT
