@@ -1,18 +1,18 @@
 //go:build ignore
-
-package main
+package bake_recipe
 
 import (
 	"github.com/fezcode/gobake"
 )
 
-func main() {
-	bake := gobake.NewEngine()
-	bake.LoadRecipeInfo("recipe.piml")
+func Run(bake *gobake.Engine) error {
+	if err := bake.LoadRecipeInfo("recipe.piml"); err != nil {
+		return err
+	}
 
 	bake.Task("build", "Builds the binary for multiple platforms", func(ctx *gobake.Context) error {
 		ctx.Log("Building %s v%s...", bake.Info.Name, bake.Info.Version)
-		
+
 		targets := []struct {
 			os   string
 			arch string
@@ -35,16 +35,16 @@ func main() {
 			if t.os == "windows" {
 				output += ".exe"
 			}
-			
+
 			ctx.Log("Baking binary for %s/%s -> %s", t.os, t.arch, output)
-			
+
 			// Set environment for this specific run
 			ctx.Env = []string{
 				"GOOS=" + t.os,
 				"GOARCH=" + t.arch,
 				"CGO_ENABLED=0",
 			}
-			
+
 			err := ctx.Run("go", "build", "-o", output, "./cmd/main.go")
 			if err != nil {
 				return err
@@ -57,5 +57,5 @@ func main() {
 		return ctx.Remove("build")
 	})
 
-	bake.Execute()
+	return nil
 }
