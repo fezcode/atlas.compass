@@ -4,12 +4,13 @@ import "github.com/charmbracelet/lipgloss"
 
 var (
 	// Colors
-	ColorPrimary   = lipgloss.Color("#00ADD8") // Atlas Cyan
-	ColorSecondary = lipgloss.Color("#FF00FF") // Magenta
-	ColorText      = lipgloss.Color("#FFFFFF")
-	ColorSubtext   = lipgloss.Color("#EEEEEE") // Extremely bright for visibility
-	ColorError     = lipgloss.Color("#FF5555")
-	ColorSuccess   = lipgloss.Color("#00FF00")
+	ColorPrimary   = lipgloss.Color("#6B50FF") // Atlas Purple
+	ColorSecondary = lipgloss.Color("#FF5F87") // Atlas Pink
+	ColorCyan      = lipgloss.Color("#00D7FF") // Atlas Cyan
+	ColorText      = lipgloss.Color("#FFFDF5")
+	ColorSubtext   = lipgloss.Color("#626262")
+	ColorError     = lipgloss.Color("#FF5F87")
+	ColorSuccess   = lipgloss.Color("#00D787")
 
 	// Base Styles
 	StyleBase = lipgloss.NewStyle().Foreground(ColorText)
@@ -34,8 +35,8 @@ var (
 
 	StyleListItemSelected = lipgloss.NewStyle().
 				PaddingLeft(1).
-				Foreground(ColorPrimary).
-				SetString("> ")
+				Foreground(ColorSecondary).
+				SetString("❯ ")
 
 	StyleListHeader = lipgloss.NewStyle().
 			Foreground(ColorPrimary).
